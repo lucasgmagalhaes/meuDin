@@ -5,6 +5,7 @@ import { NavigationContainer, DefaultTheme } from "@react-navigation/native";
 import Home from "./Screens/Home/Home";
 import { createStackNavigator } from "@react-navigation/stack";
 import { AddAccount } from "./Screens/AddAccount";
+import Historic from "./Screens/Historic/Historic";
 const Stack = createStackNavigator();
 
 export default function App() {
@@ -29,6 +30,11 @@ export default function App() {
           name="AddAccount"
           options={{ title: "Adicionar Conta" }}
           component={AddAccount}
+        />
+        <Stack.Screen
+          name="historic"
+          options={{ title: "Histórico" }}
+          component={Historic}
         />
       </Stack.Navigator>
       <StatusBar style="auto" />

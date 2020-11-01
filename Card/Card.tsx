@@ -1,25 +1,19 @@
 import React from "react";
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { formatMoney } from "../moneyFormatter";
 import { CardProps } from "./Card.props";
 
 export default function Card(props: CardProps) {
   return (
-    <TouchableOpacity style={styles.container}>
+    <TouchableOpacity onPress={props.onClick} style={styles.container}>
       <View style={styles.titleContainer}>
         <Text style={styles.titleText}>{props.title}</Text>
       </View>
       <View style={styles.amountContainer}>
-        <Text style={styles.amountText}>{formatAmount(props.amount)}</Text>
+        <Text style={styles.amountText}>{formatMoney(props.amount)}</Text>
       </View>
     </TouchableOpacity>
   );
-
-  function formatAmount(amount: number) {
-    if (amount) {
-      return `R$ ${amount.toFixed(2)}`;
-    }
-    return "R$ 0.00";
-  }
 }
 
 const styles = StyleSheet.create({
