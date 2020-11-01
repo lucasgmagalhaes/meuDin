@@ -15,7 +15,7 @@ class Storage {
       const bills = await this.findAll();
       if (bills) {
         bills.push(bill);
-        this.saveAll(bills);
+        await this.saveAll(bills);
       }
     }
   }
